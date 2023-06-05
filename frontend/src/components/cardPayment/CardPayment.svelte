@@ -2,6 +2,8 @@
 import { loadStripe } from "@stripe/stripe-js"
 import {onMount} from "svelte";
 import axios from "axios";
+
+
 let stripe  = null;
 let cardElement = null;
 
@@ -53,7 +55,7 @@ const submitPaymentMethod = async (e)=>{
                 url: "http://localhost:5000/payment/card",
                 method: "POST",
                 data: {
-                    id: payload.createPaymentMethod.id,
+                    id: payload.paymentMethod.id,
                     description: "Razer Electra V2",
                     amount: 70 * 100
                 }
